@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using InvestCarControl.Data;
 using InvestCarControl.Models;
 
 namespace InvestCarControl.Controllers
@@ -53,7 +54,7 @@ namespace InvestCarControl.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nome")] Fabricante fabricante)
+        public async Task<IActionResult> Create([Bind("Id,Nome,Site,Prioridade")] Fabricante fabricante)
         {
             if (ModelState.IsValid)
             {
@@ -85,7 +86,7 @@ namespace InvestCarControl.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome")] Fabricante fabricante)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,Site,Prioridade")] Fabricante fabricante)
         {
             if (id != fabricante.Id)
             {

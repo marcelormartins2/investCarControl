@@ -1,8 +1,9 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using InvestCarControl.Models;
 
-namespace InvestCarControl.Models
+namespace InvestCarControl.Data
 {
     public partial class MyDbContext : DbContext
     {
@@ -22,15 +23,6 @@ namespace InvestCarControl.Models
         public virtual DbSet<Participacao> Participacao { get; set; }
         public virtual DbSet<Responsavel> Responsavel { get; set; }
         public virtual DbSet<Veiculo> Veiculo { get; set; }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            if (!optionsBuilder.IsConfigured)
-            {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseMySql("server=localhost;userid=developer;password=123456;database=investcarcontroldb");
-            }
-        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -60,6 +52,11 @@ namespace InvestCarControl.Models
                 entity.Property(e => e.Nome)
                     .HasColumnName("nome")
                     .HasColumnType("varchar(20)");
+
+                entity.Property(e => e.Site)
+                   .HasColumnName("site")
+                   .HasColumnType("varchar(45)");
+                entity.Property(e => e.Prioridade).HasColumnName("prioridade");
             });
 
             modelBuilder.Entity<Modelocar>(entity =>
@@ -189,13 +186,27 @@ namespace InvestCarControl.Models
                 entity.HasIndex(e => e.ModeloCarId)
                     .HasName("fk_veiculo_modeloCar1_idx");
 
-                entity.Property(e => e.Id)
-                    .HasColumnName("id")
-                    .HasColumnType("char(36)");
+                entity.Property(e => e.Id).HasColumnName("id");
+
+                entity.Property(e => e.AnoFab).HasColumnName("anofab");
 
                 entity.Property(e => e.AnoModelo).HasColumnName("anoModelo");
 
-                entity.Property(e => e.Chassis)
+                entity.Property(e => e.Hodometro).HasColumnName("hodometro");
+
+            entity.Property(e => e.Origem)
+                        .HasColumnName("origem")
+                        .HasColumnType("varchar(20)");
+
+            entity.Property(e => e.Renavam).HasColumnName("renavam");
+
+            entity.Property(e => e.ValorFipe).HasColumnName("valorfipe");
+
+            entity.Property(e => e.ValorPago).HasColumnName("valorpago");
+
+            entity.Property(e => e.ValorVenda).HasColumnName("valorvenda");
+
+        entity.Property(e => e.Chassis)
                     .HasColumnName("chassis")
                     .HasColumnType("varchar(20)");
 

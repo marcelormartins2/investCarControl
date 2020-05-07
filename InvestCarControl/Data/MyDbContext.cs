@@ -85,9 +85,7 @@ namespace InvestCarControl.Data
             {
                 entity.ToTable("parceiro");
 
-                entity.Property(e => e.Id)
-                    .HasColumnName("id")
-                    .HasColumnType("char(36)");
+                entity.Property(e => e.Id).HasColumnName("id");
 
                 entity.Property(e => e.Email)
                     .HasColumnName("email")
@@ -118,13 +116,9 @@ namespace InvestCarControl.Data
                 entity.HasIndex(e => e.VeiculoId)
                     .HasName("fk_parceiro_has_veiculo_veiculo1_idx");
 
-                entity.Property(e => e.ParceiroId)
-                    .HasColumnName("parceiro_id")
-                    .HasColumnType("char(36)");
+                entity.Property(e => e.ParceiroId).HasColumnName("parceiro_id");
 
-                entity.Property(e => e.VeiculoId)
-                    .HasColumnName("veiculo_id")
-                    .HasColumnType("char(36)");
+                entity.Property(e => e.VeiculoId).HasColumnName("veiculo_id");
 
                 entity.Property(e => e.PorcentagemCompra).HasColumnName("porcentagemCompra");
 
@@ -157,9 +151,7 @@ namespace InvestCarControl.Data
 
                 entity.Property(e => e.DespesaId).HasColumnName("despesa_id");
 
-                entity.Property(e => e.ParceiroId)
-                    .HasColumnName("parceiro_id")
-                    .HasColumnType("char(36)");
+                entity.Property(e => e.ParceiroId).HasColumnName("parceiro_id");
 
                 entity.Property(e => e.Porcentagem).HasColumnName("porcentagem");
 

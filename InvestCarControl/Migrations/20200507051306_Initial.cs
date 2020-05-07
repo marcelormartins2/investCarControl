@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace InvestCarControl.Migrations
 {
-    public partial class Inicial : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -15,8 +15,8 @@ namespace InvestCarControl.Migrations
                     id = table.Column<int>(nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     descricao = table.Column<string>(type: "varchar(50)", nullable: true),
-                    data = table.Column<DateTime>(type: "datetime", nullable: true),
-                    valor = table.Column<double>(nullable: true)
+                    data = table.Column<DateTime>(type: "datetime", nullable: false),
+                    valor = table.Column<double>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -29,7 +29,9 @@ namespace InvestCarControl.Migrations
                 {
                     id = table.Column<int>(nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    nome = table.Column<string>(type: "varchar(20)", nullable: true)
+                    nome = table.Column<string>(type: "varchar(20)", nullable: true),
+                    site = table.Column<string>(type: "varchar(45)", nullable: true),
+                    prioridade = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -40,7 +42,8 @@ namespace InvestCarControl.Migrations
                 name: "parceiro",
                 columns: table => new
                 {
-                    id = table.Column<string>(type: "char(36)", nullable: false),
+                    id = table.Column<int>(nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     nome = table.Column<string>(type: "varchar(45)", nullable: true),
                     email = table.Column<string>(type: "varchar(45)", nullable: true),
                     telefone = table.Column<string>(type: "varchar(45)", nullable: true),
@@ -76,8 +79,8 @@ namespace InvestCarControl.Migrations
                 columns: table => new
                 {
                     despesa_id = table.Column<int>(nullable: false),
-                    parceiro_id = table.Column<string>(type: "char(36)", nullable: false),
-                    porcentagem = table.Column<int>(nullable: true)
+                    parceiro_id = table.Column<int>(nullable: false),
+                    porcentagem = table.Column<double>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -100,12 +103,20 @@ namespace InvestCarControl.Migrations
                 name: "veiculo",
                 columns: table => new
                 {
-                    id = table.Column<string>(type: "char(36)", nullable: false),
+                    id = table.Column<int>(nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     placa = table.Column<string>(type: "varchar(10)", nullable: true),
                     chassis = table.Column<string>(type: "varchar(20)", nullable: true),
                     cor = table.Column<string>(type: "varchar(15)", nullable: true),
                     dut = table.Column<string>(type: "varchar(20)", nullable: true),
-                    anoModelo = table.Column<int>(nullable: true),
+                    hodometro = table.Column<int>(nullable: false),
+                    anofab = table.Column<int>(nullable: false),
+                    anoModelo = table.Column<int>(nullable: false),
+                    origem = table.Column<string>(type: "varchar(20)", nullable: true),
+                    renavam = table.Column<int>(nullable: false),
+                    valorfipe = table.Column<double>(nullable: false),
+                    valorpago = table.Column<double>(nullable: false),
+                    valorvenda = table.Column<double>(nullable: false),
                     despesa_id = table.Column<int>(nullable: false),
                     modeloCar_id = table.Column<int>(nullable: false)
                 },
@@ -130,10 +141,10 @@ namespace InvestCarControl.Migrations
                 name: "participacao",
                 columns: table => new
                 {
-                    parceiro_id = table.Column<string>(type: "char(36)", nullable: false),
-                    veiculo_id = table.Column<string>(type: "char(36)", nullable: false),
-                    porcentagemCompra = table.Column<int>(nullable: true),
-                    porcentagemLucro = table.Column<int>(nullable: true)
+                    parceiro_id = table.Column<int>(nullable: false),
+                    veiculo_id = table.Column<int>(nullable: false),
+                    porcentagemCompra = table.Column<double>(nullable: false),
+                    porcentagemLucro = table.Column<double>(nullable: false)
                 },
                 constraints: table =>
                 {

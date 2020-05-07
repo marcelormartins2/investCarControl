@@ -5,10 +5,10 @@ namespace InvestCarControl.Models
 {
     public partial class Participacao
     {
-        public string ParceiroId { get; set; }
-        public string VeiculoId { get; set; }
-        public int? PorcentagemCompra { get; set; }
-        public int? PorcentagemLucro { get; set; }
+        public int  ParceiroId { get; set; }
+        public int VeiculoId { get; set; }
+        public double PorcentagemCompra { get; set; }
+        public double PorcentagemLucro { get; set; }
 
         public Parceiro Parceiro { get; set; }
         public Veiculo Veiculo { get; set; }

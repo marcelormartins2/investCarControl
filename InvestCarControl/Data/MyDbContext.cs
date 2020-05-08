@@ -153,7 +153,7 @@ namespace InvestCarControl.Data
 
                 entity.Property(e => e.ParceiroId).HasColumnName("parceiro_id");
 
-                entity.Property(e => e.Porcentagem).HasColumnName("porcentagem");
+                entity.Property(e => e.Valor).HasColumnName("valor");
 
                 entity.HasOne(d => d.Despesa)
                     .WithMany(p => p.Responsavel)

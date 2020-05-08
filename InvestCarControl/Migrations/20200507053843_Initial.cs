@@ -31,7 +31,7 @@ namespace InvestCarControl.Migrations
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     nome = table.Column<string>(type: "varchar(20)", nullable: true),
                     site = table.Column<string>(type: "varchar(45)", nullable: true),
-                    prioridade = table.Column<int>(nullable: false)
+                    prioridade = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -80,7 +80,7 @@ namespace InvestCarControl.Migrations
                 {
                     despesa_id = table.Column<int>(nullable: false),
                     parceiro_id = table.Column<int>(nullable: false),
-                    porcentagem = table.Column<double>(nullable: false)
+                    valor = table.Column<double>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -109,15 +109,15 @@ namespace InvestCarControl.Migrations
                     chassis = table.Column<string>(type: "varchar(20)", nullable: true),
                     cor = table.Column<string>(type: "varchar(15)", nullable: true),
                     dut = table.Column<string>(type: "varchar(20)", nullable: true),
-                    hodometro = table.Column<int>(nullable: false),
+                    hodometro = table.Column<int>(nullable: true),
                     anofab = table.Column<int>(nullable: false),
                     anoModelo = table.Column<int>(nullable: false),
                     origem = table.Column<string>(type: "varchar(20)", nullable: true),
-                    renavam = table.Column<int>(nullable: false),
-                    valorfipe = table.Column<double>(nullable: false),
-                    valorpago = table.Column<double>(nullable: false),
-                    valorvenda = table.Column<double>(nullable: false),
-                    despesa_id = table.Column<int>(nullable: false),
+                    renavam = table.Column<int>(nullable: true),
+                    valorfipe = table.Column<double>(nullable: true),
+                    valorpago = table.Column<double>(nullable: true),
+                    valorvenda = table.Column<double>(nullable: true),
+                    despesa_id = table.Column<int>(nullable: true),
                     modeloCar_id = table.Column<int>(nullable: false)
                 },
                 constraints: table =>

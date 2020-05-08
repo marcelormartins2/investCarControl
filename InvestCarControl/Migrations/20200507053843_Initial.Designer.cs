@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace InvestCarControl.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    [Migration("20200507051306_Initial")]
+    [Migration("20200507053843_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -51,7 +51,7 @@ namespace InvestCarControl.Migrations
                         .HasColumnName("nome")
                         .HasColumnType("varchar(20)");
 
-                    b.Property<int>("Prioridade")
+                    b.Property<int?>("Prioridade")
                         .HasColumnName("prioridade");
 
                     b.Property<string>("Site")
@@ -144,8 +144,8 @@ namespace InvestCarControl.Migrations
                     b.Property<int>("ParceiroId")
                         .HasColumnName("parceiro_id");
 
-                    b.Property<double>("Porcentagem")
-                        .HasColumnName("porcentagem");
+                    b.Property<double>("Valor")
+                        .HasColumnName("valor");
 
                     b.HasKey("DespesaId", "ParceiroId");
 
@@ -178,14 +178,14 @@ namespace InvestCarControl.Migrations
                         .HasColumnName("cor")
                         .HasColumnType("varchar(15)");
 
-                    b.Property<int>("DespesaId")
+                    b.Property<int?>("DespesaId")
                         .HasColumnName("despesa_id");
 
                     b.Property<string>("Dut")
                         .HasColumnName("dut")
                         .HasColumnType("varchar(20)");
 
-                    b.Property<int>("Hodometro")
+                    b.Property<int?>("Hodometro")
                         .HasColumnName("hodometro");
 
                     b.Property<int>("ModeloCarId")
@@ -199,16 +199,16 @@ namespace InvestCarControl.Migrations
                         .HasColumnName("placa")
                         .HasColumnType("varchar(10)");
 
-                    b.Property<int>("Renavam")
+                    b.Property<int?>("Renavam")
                         .HasColumnName("renavam");
 
-                    b.Property<double>("ValorFipe")
+                    b.Property<double?>("ValorFipe")
                         .HasColumnName("valorfipe");
 
-                    b.Property<double>("ValorPago")
+                    b.Property<double?>("ValorPago")
                         .HasColumnName("valorpago");
 
-                    b.Property<double>("ValorVenda")
+                    b.Property<double?>("ValorVenda")
                         .HasColumnName("valorvenda");
 
                     b.HasKey("Id");

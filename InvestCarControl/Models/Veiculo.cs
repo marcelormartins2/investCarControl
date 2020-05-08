@@ -15,15 +15,15 @@ namespace InvestCarControl.Models
         public string Chassis { get; set; }
         public string Cor { get; set; }
         public string Dut { get; set; }
-        public int Hodometro { get; set; }
+        public int? Hodometro { get; set; }
         public int AnoFab { get; set; }
         public int AnoModelo { get; set; }
         public string Origem { get; set; }
-        public int Renavam { get; set; }
-        public double ValorFipe { get; set; }
-        public double ValorPago { get; set; }
-        public double ValorVenda { get; set; }
-        public int DespesaId { get; set; }
+        public int? Renavam { get; set; }
+        public double? ValorFipe { get; set; }
+        public double? ValorPago { get; set; }
+        public double? ValorVenda { get; set; }
+        public int? DespesaId { get; set; }
         public int ModeloCarId { get; set; }
 
         public Despesa Despesa { get; set; }
